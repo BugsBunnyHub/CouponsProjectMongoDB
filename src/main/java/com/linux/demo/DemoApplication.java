@@ -34,10 +34,7 @@ public class DemoApplication implements CommandLineRunner {
     @Override
     public void run(String ...args) throws Exception {
 
-        User user = new User(null, "daniel", "123456", Role.ADMIN);
-        userDAO.insertUser(user);
-
-//        userDAO.getByCredentials(user.getUsername(), user.getPassword());
+        System.out.println("WORKS");
 
     }
 }
