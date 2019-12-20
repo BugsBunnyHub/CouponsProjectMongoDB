@@ -30,7 +30,7 @@ public class Company {
         this.name = doc.getString("name");
         this.email = doc.getString("email");
         //TODO ask how to insert a list
-        //this.coupons = doc.getList("coupons");
+//        this.coupons = doc.getList("coupons", );
     }
 
     //TODO add coupons

@@ -12,6 +12,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Arrays;
+
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 
@@ -34,10 +36,27 @@ public class DemoApplication implements CommandLineRunner {
     @Override
     public void run(String ...args) throws Exception {
 
-        User user = new User(null, "daniel", "123456", Role.ADMIN);
-        userDAO.insertUser(user);
+//        User user1 = new User(null, "daniel", "123456", Role.ADMIN);
+//        User user2 = new User(null, "vlad", "444555", Role.CUSTOMER);
+//        User user3 = new User(null, "moshe", "888555", Role.COMPANY);
 
-//        userDAO.getByCredentials(user.getUsername(), user.getPassword());
+//        Arrays.asList(user1, user2, user3).forEach(u -> {
+//            try {
+//                userDAO.insertUser(u);
+//            } catch (Exception e) {
+//                logger.error(e.getMessage());
+//                throw new RuntimeException(e.getMessage());
+//            }
+//        });
+
+//        userDAO.getAll().forEach(u -> logger.info(u.toString()));
+//        User fetchedUser = userDAO.getByCredentials(user1.getUsername(), user1.getPassword());
+//        System.out.println(fetchedUser);
+//        System.out.println(userDAO.getOne(fetchedUser.getId()));
+//        System.out.println(userDAO.DeleteUser(fetchedUser.getId()));
+//        User updateUser = userDAO.getByCredentials(user2.getUsername(), user2.getPassword());
+//        updateUser.setRole(Role.ADMIN);
+//        System.out.println(userDAO.update(updateUser, updateUser.getId()));
 
     }
 }

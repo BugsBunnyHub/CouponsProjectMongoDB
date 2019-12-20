@@ -3,7 +3,6 @@ package com.linux.demo.mongo.dao;
 import com.linux.demo.beans.User;
 import com.linux.demo.service.PasswordEncryptor;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.model.Aggregates;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.UpdateResult;
@@ -14,7 +13,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Repository
@@ -37,12 +35,24 @@ public class UserDAO {
         return new User(doc);
     }
 
+    public boolean isExists(String username) {
+        MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
+        long count = collection.countDocuments(
+                Filters.eq("username", username)
+        );
+
+        // if count is bigger then 0 then return true, else false
+        return count > 0;
+    }
+
     public User getByCredentials(String username, String password) throws Exception {
         MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
-        Document doc = collection.aggregate(Arrays.asList(
-                Aggregates.match(Filters.eq("username",username)),
-                Aggregates.match(Filters.eq("password", passwordEncryptor.encrypt(password)))
-        )).first();
+        Document doc = collection.find(
+                Filters.and(
+                        Filters.eq("username", username),
+                        Filters.eq("password", passwordEncryptor.encrypt(password))
+                )
+        ).first();
 
         return new User(doc);
     }
@@ -61,14 +71,14 @@ public class UserDAO {
         ).wasAcknowledged();
     }
 
-    public boolean updateUser(User user, ObjectId id) throws Exception {
+    public boolean update(User user, ObjectId id) throws Exception {
         MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
         UpdateResult res = collection.updateOne(
                 Filters.eq("_id", id),
                 Updates.combine(
                         Updates.set("username", user.getUsername()),
                         Updates.set("password", passwordEncryptor.encrypt(user.getPassword())),
-                        Updates.set("role", user.getRole())
+                        Updates.set("role", user.getRole().name())
                 )
         );
         return res.wasAcknowledged();

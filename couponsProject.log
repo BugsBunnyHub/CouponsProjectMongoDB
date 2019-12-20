@@ -359,3 +359,418 @@ Caused by: java.lang.NullPointerException: null
 2019-12-20 05:32:43 INFO  [main] com.linux.demo.DemoApplication - Started DemoApplication in 3.78 seconds (JVM running for 4.308)
 2019-12-20 05:32:43 INFO  [main] org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:193}] to 127.0.0.1:27017
 2019-12-20 05:33:31 INFO  [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-20 05:54:00 INFO  [main] com.linux.demo.DemoApplication - Starting DemoApplication on ubuntu with PID 3869 (/home/daniel/dev/couponsLinux/target/classes started by daniel in /home/daniel/dev/couponsLinux)
+2019-12-20 05:54:00 INFO  [main] com.linux.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2019-12-20 05:54:01 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2019-12-20 05:54:01 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24ms. Found 0 MongoDB repository interfaces.
+2019-12-20 05:54:02 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-12-20 05:54:02 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-20 05:54:02 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-20 05:54:02 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-20 05:54:02 INFO  [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1684 ms
+2019-12-20 05:54:02 INFO  [main] org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-20 05:54:02 INFO  [cluster-ClusterId{value='5dfcd27a86632b421666b297', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:6}] to 127.0.0.1:27017
+2019-12-20 05:54:02 INFO  [cluster-ClusterId{value='5dfcd27a86632b421666b297', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=13929562}
+2019-12-20 05:54:03 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-20 05:54:03 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 05:54:03 INFO  [main] com.linux.demo.DemoApplication - Started DemoApplication in 3.443 seconds (JVM running for 3.993)
+2019-12-20 05:54:03 INFO  [main] org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:7}] to 127.0.0.1:27017
+2019-12-20 05:54:03 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-12-20 05:54:03 ERROR [main] o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:787)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:768)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.linux.demo.DemoApplication.main(DemoApplication.java:31)
+Caused by: java.lang.NullPointerException: null
+	at com.linux.demo.beans.User.<init>(User.java:22)
+	at com.linux.demo.mongo.dao.UserDAO.getByCredentials(UserDAO.java:47)
+	at com.linux.demo.mongo.dao.UserDAO$$FastClassBySpringCGLIB$$5226238d.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:769)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
+	at com.linux.demo.mongo.dao.UserDAO$$EnhancerBySpringCGLIB$$1b0dfcbb.getByCredentials(<generated>)
+	at com.linux.demo.DemoApplication.run(DemoApplication.java:40)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:784)
+	... 5 common frames omitted
+2019-12-20 05:54:03 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-20 05:55:22 INFO  [main] com.linux.demo.DemoApplication - Starting DemoApplication on ubuntu with PID 3966 (/home/daniel/dev/couponsLinux/target/classes started by daniel in /home/daniel/dev/couponsLinux)
+2019-12-20 05:55:22 INFO  [main] com.linux.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2019-12-20 05:55:23 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2019-12-20 05:55:23 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19ms. Found 0 MongoDB repository interfaces.
+2019-12-20 05:55:23 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-12-20 05:55:23 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-20 05:55:23 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-20 05:55:23 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-20 05:55:23 INFO  [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1227 ms
+2019-12-20 05:55:23 INFO  [main] org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-20 05:55:24 INFO  [cluster-ClusterId{value='5dfcd2cb99fd943f5023d831', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:15}] to 127.0.0.1:27017
+2019-12-20 05:55:24 INFO  [cluster-ClusterId{value='5dfcd2cb99fd943f5023d831', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7609777}
+2019-12-20 05:55:24 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-20 05:55:24 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 05:55:24 INFO  [main] com.linux.demo.DemoApplication - Started DemoApplication in 2.638 seconds (JVM running for 3.212)
+2019-12-20 05:55:24 INFO  [main] org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:16}] to 127.0.0.1:27017
+2019-12-20 05:55:45 INFO  [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-20 05:55:51 INFO  [main] com.linux.demo.DemoApplication - Starting DemoApplication on ubuntu with PID 4069 (/home/daniel/dev/couponsLinux/target/classes started by daniel in /home/daniel/dev/couponsLinux)
+2019-12-20 05:55:51 INFO  [main] com.linux.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2019-12-20 05:55:51 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2019-12-20 05:55:51 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14ms. Found 0 MongoDB repository interfaces.
+2019-12-20 05:55:52 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-12-20 05:55:52 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-20 05:55:52 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-20 05:55:52 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-20 05:55:52 INFO  [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1208 ms
+2019-12-20 05:55:52 INFO  [main] org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-20 05:55:52 INFO  [cluster-ClusterId{value='5dfcd2e8830b2b37658d9a4f', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:18}] to 127.0.0.1:27017
+2019-12-20 05:55:52 INFO  [cluster-ClusterId{value='5dfcd2e8830b2b37658d9a4f', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3396979}
+2019-12-20 05:55:52 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-20 05:55:53 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 05:55:53 INFO  [main] com.linux.demo.DemoApplication - Started DemoApplication in 2.425 seconds (JVM running for 3.077)
+2019-12-20 05:55:53 INFO  [main] org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:19}] to 127.0.0.1:27017
+2019-12-20 06:02:15 INFO  [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:02:42 INFO  [main] com.linux.demo.DemoApplication - Starting DemoApplication on ubuntu with PID 4329 (/home/daniel/dev/couponsLinux/target/classes started by daniel in /home/daniel/dev/couponsLinux)
+2019-12-20 06:02:42 INFO  [main] com.linux.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2019-12-20 06:02:42 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2019-12-20 06:02:42 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11ms. Found 0 MongoDB repository interfaces.
+2019-12-20 06:02:43 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-12-20 06:02:43 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-20 06:02:43 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-20 06:02:43 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-20 06:02:43 INFO  [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 769 ms
+2019-12-20 06:02:43 INFO  [main] org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-20 06:02:43 INFO  [cluster-ClusterId{value='5dfcd483c5e23e708a48685e', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:33}] to 127.0.0.1:27017
+2019-12-20 06:02:43 INFO  [cluster-ClusterId{value='5dfcd483c5e23e708a48685e', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2104696}
+2019-12-20 06:02:43 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:02:43 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 06:02:43 INFO  [main] com.linux.demo.DemoApplication - Started DemoApplication in 1.575 seconds (JVM running for 1.927)
+2019-12-20 06:02:43 INFO  [main] org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:34}] to 127.0.0.1:27017
+2019-12-20 06:03:07 INFO  [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:27:53 INFO  [main] com.linux.demo.DemoApplication - Starting DemoApplication on ubuntu with PID 4843 (/home/daniel/dev/couponsLinux/target/classes started by daniel in /home/daniel/dev/couponsLinux)
+2019-12-20 06:27:53 INFO  [main] com.linux.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2019-12-20 06:27:53 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2019-12-20 06:27:53 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10ms. Found 0 MongoDB repository interfaces.
+2019-12-20 06:27:54 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-12-20 06:27:54 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-20 06:27:54 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-20 06:27:54 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-20 06:27:54 INFO  [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 733 ms
+2019-12-20 06:27:54 INFO  [main] org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-20 06:27:54 INFO  [cluster-ClusterId{value='5dfcda6aac541a19d066cf7f', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:87}] to 127.0.0.1:27017
+2019-12-20 06:27:54 INFO  [cluster-ClusterId{value='5dfcda6aac541a19d066cf7f', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1879715}
+2019-12-20 06:27:54 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:27:54 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 06:27:54 INFO  [main] com.linux.demo.DemoApplication - Started DemoApplication in 1.543 seconds (JVM running for 1.906)
+2019-12-20 06:27:54 INFO  [main] org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:88}] to 127.0.0.1:27017
+2019-12-20 06:27:54 INFO  [main] com.linux.demo.DemoApplication - User(id=5dfcda6aac541a19d066cf80, username=daniel, password=8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92, role=ADMIN)
+2019-12-20 06:27:54 INFO  [main] com.linux.demo.DemoApplication - User(id=5dfcda6aac541a19d066cf81, username=vlad, password=76ae8b51311475b2111e0093db3a95694bc62722bb0d654184850ed34e448295, role=CUSTOMER)
+2019-12-20 06:27:54 INFO  [main] com.linux.demo.DemoApplication - User(id=5dfcda6aac541a19d066cf82, username=moshe, password=8e0257813d43c2694045ad6322151ea15b106f9a038cfcb822d78766e719b3e7, role=COMPANY)
+2019-12-20 06:27:54 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-12-20 06:27:54 ERROR [main] o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:787)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:768)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.linux.demo.DemoApplication.main(DemoApplication.java:33)
+Caused by: java.lang.NullPointerException: null
+	at com.linux.demo.beans.User.<init>(User.java:22)
+	at com.linux.demo.mongo.dao.UserDAO.getByCredentials(UserDAO.java:57)
+	at com.linux.demo.mongo.dao.UserDAO$$FastClassBySpringCGLIB$$5226238d.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:769)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
+	at com.linux.demo.mongo.dao.UserDAO$$EnhancerBySpringCGLIB$$f5ea569f.getByCredentials(<generated>)
+	at com.linux.demo.DemoApplication.run(DemoApplication.java:53)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:784)
+	... 5 common frames omitted
+2019-12-20 06:27:54 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:30:29 INFO  [main] com.linux.demo.DemoApplication - Starting DemoApplication on ubuntu with PID 5026 (/home/daniel/dev/couponsLinux/target/classes started by daniel in /home/daniel/dev/couponsLinux)
+2019-12-20 06:30:29 INFO  [main] com.linux.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2019-12-20 06:30:30 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2019-12-20 06:30:30 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10ms. Found 0 MongoDB repository interfaces.
+2019-12-20 06:30:30 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-12-20 06:30:30 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-20 06:30:30 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-20 06:30:30 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-20 06:30:30 INFO  [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 756 ms
+2019-12-20 06:30:30 INFO  [main] org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-20 06:30:30 INFO  [cluster-ClusterId{value='5dfcdb066ecb6c6b1c85705d', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:94}] to 127.0.0.1:27017
+2019-12-20 06:30:30 INFO  [cluster-ClusterId{value='5dfcdb066ecb6c6b1c85705d', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2892798}
+2019-12-20 06:30:30 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:30:31 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 06:30:31 INFO  [main] com.linux.demo.DemoApplication - Started DemoApplication in 1.671 seconds (JVM running for 2.989)
+2019-12-20 06:30:31 INFO  [main] org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:95}] to 127.0.0.1:27017
+2019-12-20 06:31:04 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-12-20 06:31:04 ERROR [main] o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:787)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:768)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.linux.demo.DemoApplication.main(DemoApplication.java:33)
+Caused by: org.bson.codecs.configuration.CodecConfigurationException: Can't find a codec for class com.linux.demo.beans.Role.
+	at org.bson.codecs.configuration.CodecCache.getOrThrow(CodecCache.java:46)
+	at org.bson.codecs.configuration.ProvidersCodecRegistry.get(ProvidersCodecRegistry.java:63)
+	at org.bson.codecs.configuration.ProvidersCodecRegistry.get(ProvidersCodecRegistry.java:37)
+	at com.mongodb.client.model.BuildersHelper.encodeValue(BuildersHelper.java:37)
+	at com.mongodb.client.model.Updates$SimpleUpdate.toBsonDocument(Updates.java:511)
+	at com.mongodb.client.model.Updates$CompositeUpdate.toBsonDocument(Updates.java:784)
+	at com.mongodb.internal.operation.Operations.toBsonDocument(Operations.java:533)
+	at com.mongodb.internal.operation.Operations.bulkWrite(Operations.java:407)
+	at com.mongodb.internal.operation.Operations.updateOne(Operations.java:346)
+	at com.mongodb.internal.operation.SyncOperations.updateOne(SyncOperations.java:186)
+	at com.mongodb.client.internal.MongoCollectionImpl.executeUpdate(MongoCollectionImpl.java:1033)
+	at com.mongodb.client.internal.MongoCollectionImpl.updateOne(MongoCollectionImpl.java:617)
+	at com.mongodb.client.internal.MongoCollectionImpl.updateOne(MongoCollectionImpl.java:612)
+	at com.linux.demo.mongo.dao.UserDAO.update(UserDAO.java:76)
+	at com.linux.demo.mongo.dao.UserDAO$$FastClassBySpringCGLIB$$5226238d.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:769)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
+	at com.linux.demo.mongo.dao.UserDAO$$EnhancerBySpringCGLIB$$24f6fdb7.update(<generated>)
+	at com.linux.demo.DemoApplication.run(DemoApplication.java:59)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:784)
+	... 5 common frames omitted
+2019-12-20 06:31:04 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:33:50 INFO  [main] com.linux.demo.DemoApplication - Starting DemoApplication on ubuntu with PID 5176 (/home/daniel/dev/couponsLinux/target/classes started by daniel in /home/daniel/dev/couponsLinux)
+2019-12-20 06:33:50 INFO  [main] com.linux.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2019-12-20 06:33:50 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2019-12-20 06:33:50 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15ms. Found 0 MongoDB repository interfaces.
+2019-12-20 06:33:51 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-12-20 06:33:51 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-20 06:33:51 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-20 06:33:51 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-20 06:33:51 INFO  [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 767 ms
+2019-12-20 06:33:51 INFO  [main] org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-20 06:33:51 INFO  [cluster-ClusterId{value='5dfcdbcfed280613978cc725', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:102}] to 127.0.0.1:27017
+2019-12-20 06:33:51 INFO  [cluster-ClusterId{value='5dfcdbcfed280613978cc725', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2044404}
+2019-12-20 06:33:51 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:33:51 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 06:33:51 INFO  [main] com.linux.demo.DemoApplication - Started DemoApplication in 1.529 seconds (JVM running for 1.915)
+2019-12-20 06:33:51 INFO  [main] org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:103}] to 127.0.0.1:27017
+2019-12-20 06:33:51 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-12-20 06:33:51 ERROR [main] o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:787)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:768)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.linux.demo.DemoApplication.main(DemoApplication.java:33)
+Caused by: org.bson.codecs.configuration.CodecConfigurationException: Can't find a codec for class com.linux.demo.beans.Role.
+	at org.bson.codecs.configuration.CodecCache.getOrThrow(CodecCache.java:46)
+	at org.bson.codecs.configuration.ProvidersCodecRegistry.get(ProvidersCodecRegistry.java:63)
+	at org.bson.codecs.configuration.ProvidersCodecRegistry.get(ProvidersCodecRegistry.java:37)
+	at com.mongodb.client.model.BuildersHelper.encodeValue(BuildersHelper.java:37)
+	at com.mongodb.client.model.Updates$SimpleUpdate.toBsonDocument(Updates.java:511)
+	at com.mongodb.client.model.Updates$CompositeUpdate.toBsonDocument(Updates.java:784)
+	at com.mongodb.internal.operation.Operations.toBsonDocument(Operations.java:533)
+	at com.mongodb.internal.operation.Operations.bulkWrite(Operations.java:407)
+	at com.mongodb.internal.operation.Operations.updateOne(Operations.java:346)
+	at com.mongodb.internal.operation.SyncOperations.updateOne(SyncOperations.java:186)
+	at com.mongodb.client.internal.MongoCollectionImpl.executeUpdate(MongoCollectionImpl.java:1033)
+	at com.mongodb.client.internal.MongoCollectionImpl.updateOne(MongoCollectionImpl.java:617)
+	at com.mongodb.client.internal.MongoCollectionImpl.updateOne(MongoCollectionImpl.java:612)
+	at com.linux.demo.mongo.dao.UserDAO.update(UserDAO.java:76)
+	at com.linux.demo.mongo.dao.UserDAO$$FastClassBySpringCGLIB$$5226238d.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:769)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
+	at com.linux.demo.mongo.dao.UserDAO$$EnhancerBySpringCGLIB$$68b356b7.update(<generated>)
+	at com.linux.demo.DemoApplication.run(DemoApplication.java:59)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:784)
+	... 5 common frames omitted
+2019-12-20 06:33:51 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:34:35 INFO  [main] com.linux.demo.DemoApplication - Starting DemoApplication on ubuntu with PID 5286 (/home/daniel/dev/couponsLinux/target/classes started by daniel in /home/daniel/dev/couponsLinux)
+2019-12-20 06:34:35 INFO  [main] com.linux.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2019-12-20 06:34:35 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2019-12-20 06:34:35 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11ms. Found 0 MongoDB repository interfaces.
+2019-12-20 06:34:35 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-12-20 06:34:35 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-20 06:34:35 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-20 06:34:35 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-20 06:34:35 INFO  [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 751 ms
+2019-12-20 06:34:36 INFO  [main] org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-20 06:34:36 INFO  [cluster-ClusterId{value='5dfcdbfce55803464d013ccd', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:110}] to 127.0.0.1:27017
+2019-12-20 06:34:36 INFO  [cluster-ClusterId{value='5dfcdbfce55803464d013ccd', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1870177}
+2019-12-20 06:34:36 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:34:36 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 06:34:36 INFO  [main] com.linux.demo.DemoApplication - Started DemoApplication in 1.664 seconds (JVM running for 2.063)
+2019-12-20 06:34:36 INFO  [main] org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:111}] to 127.0.0.1:27017
+2019-12-20 06:34:47 INFO  [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:34:55 INFO  [main] com.linux.demo.DemoApplication - Starting DemoApplication on ubuntu with PID 5408 (/home/daniel/dev/couponsLinux/target/classes started by daniel in /home/daniel/dev/couponsLinux)
+2019-12-20 06:34:55 INFO  [main] com.linux.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2019-12-20 06:34:55 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2019-12-20 06:34:55 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9ms. Found 0 MongoDB repository interfaces.
+2019-12-20 06:34:56 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-12-20 06:34:56 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-20 06:34:56 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-20 06:34:56 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-20 06:34:56 INFO  [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 693 ms
+2019-12-20 06:34:56 INFO  [main] org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-20 06:34:56 INFO  [cluster-ClusterId{value='5dfcdc10aab1275047a7cdc1', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:113}] to 127.0.0.1:27017
+2019-12-20 06:34:56 INFO  [cluster-ClusterId{value='5dfcdc10aab1275047a7cdc1', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1716547}
+2019-12-20 06:34:56 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:34:56 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 06:34:56 INFO  [main] com.linux.demo.DemoApplication - Started DemoApplication in 1.435 seconds (JVM running for 1.795)
+2019-12-20 06:34:56 INFO  [main] org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:114}] to 127.0.0.1:27017
+2019-12-20 06:34:56 INFO  [main] com.linux.demo.DemoApplication - User(id=5dfcdbfce55803464d013cce, username=daniel, password=8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92, role=ADMIN)
+2019-12-20 06:34:56 INFO  [main] com.linux.demo.DemoApplication - User(id=5dfcdbfce55803464d013ccf, username=vlad, password=76ae8b51311475b2111e0093db3a95694bc62722bb0d654184850ed34e448295, role=CUSTOMER)
+2019-12-20 06:34:56 INFO  [main] com.linux.demo.DemoApplication - User(id=5dfcdbfce55803464d013cd0, username=moshe, password=8e0257813d43c2694045ad6322151ea15b106f9a038cfcb822d78766e719b3e7, role=COMPANY)
+2019-12-20 06:35:07 INFO  [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:35:10 INFO  [main] com.linux.demo.DemoApplication - Starting DemoApplication on ubuntu with PID 5502 (/home/daniel/dev/couponsLinux/target/classes started by daniel in /home/daniel/dev/couponsLinux)
+2019-12-20 06:35:10 INFO  [main] com.linux.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2019-12-20 06:35:10 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2019-12-20 06:35:10 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9ms. Found 0 MongoDB repository interfaces.
+2019-12-20 06:35:10 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-12-20 06:35:10 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-20 06:35:10 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-20 06:35:10 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-20 06:35:10 INFO  [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 662 ms
+2019-12-20 06:35:10 INFO  [main] org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-20 06:35:10 INFO  [cluster-ClusterId{value='5dfcdc1e4101163969ce5b89', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:115}] to 127.0.0.1:27017
+2019-12-20 06:35:10 INFO  [cluster-ClusterId{value='5dfcdc1e4101163969ce5b89', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1628466}
+2019-12-20 06:35:11 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:35:11 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 06:35:11 INFO  [main] com.linux.demo.DemoApplication - Started DemoApplication in 1.338 seconds (JVM running for 1.664)
+2019-12-20 06:35:11 INFO  [main] org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:116}] to 127.0.0.1:27017
+2019-12-20 06:35:21 INFO  [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:35:23 INFO  [main] com.linux.demo.DemoApplication - Starting DemoApplication on ubuntu with PID 5592 (/home/daniel/dev/couponsLinux/target/classes started by daniel in /home/daniel/dev/couponsLinux)
+2019-12-20 06:35:23 INFO  [main] com.linux.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2019-12-20 06:35:24 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2019-12-20 06:35:24 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7ms. Found 0 MongoDB repository interfaces.
+2019-12-20 06:35:24 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-12-20 06:35:24 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-20 06:35:24 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-20 06:35:24 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-20 06:35:24 INFO  [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 653 ms
+2019-12-20 06:35:24 INFO  [main] org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-20 06:35:24 INFO  [cluster-ClusterId{value='5dfcdc2c6a7c094f3636f6ba', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:117}] to 127.0.0.1:27017
+2019-12-20 06:35:24 INFO  [cluster-ClusterId{value='5dfcdc2c6a7c094f3636f6ba', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1422861}
+2019-12-20 06:35:24 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:35:24 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 06:35:24 INFO  [main] com.linux.demo.DemoApplication - Started DemoApplication in 1.326 seconds (JVM running for 1.652)
+2019-12-20 06:35:24 INFO  [main] org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:118}] to 127.0.0.1:27017
+2019-12-20 06:35:30 INFO  [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:35:33 INFO  [main] com.linux.demo.DemoApplication - Starting DemoApplication on ubuntu with PID 5685 (/home/daniel/dev/couponsLinux/target/classes started by daniel in /home/daniel/dev/couponsLinux)
+2019-12-20 06:35:33 INFO  [main] com.linux.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2019-12-20 06:35:33 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2019-12-20 06:35:33 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10ms. Found 0 MongoDB repository interfaces.
+2019-12-20 06:35:34 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-12-20 06:35:34 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-20 06:35:34 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-20 06:35:34 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-20 06:35:34 INFO  [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 712 ms
+2019-12-20 06:35:34 INFO  [main] org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-20 06:35:34 INFO  [cluster-ClusterId{value='5dfcdc365a8e23534edeb255', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:120}] to 127.0.0.1:27017
+2019-12-20 06:35:34 INFO  [cluster-ClusterId{value='5dfcdc365a8e23534edeb255', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1947610}
+2019-12-20 06:35:34 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:35:34 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 06:35:34 INFO  [main] com.linux.demo.DemoApplication - Started DemoApplication in 1.445 seconds (JVM running for 1.784)
+2019-12-20 06:35:34 INFO  [main] org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:121}] to 127.0.0.1:27017
+2019-12-20 06:35:58 INFO  [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:36:01 INFO  [main] com.linux.demo.DemoApplication - Starting DemoApplication on ubuntu with PID 5780 (/home/daniel/dev/couponsLinux/target/classes started by daniel in /home/daniel/dev/couponsLinux)
+2019-12-20 06:36:01 INFO  [main] com.linux.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2019-12-20 06:36:01 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2019-12-20 06:36:01 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8ms. Found 0 MongoDB repository interfaces.
+2019-12-20 06:36:01 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-12-20 06:36:01 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-20 06:36:01 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-20 06:36:01 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-20 06:36:01 INFO  [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 703 ms
+2019-12-20 06:36:02 INFO  [main] org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-20 06:36:02 INFO  [cluster-ClusterId{value='5dfcdc5253b02315eb752835', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:123}] to 127.0.0.1:27017
+2019-12-20 06:36:02 INFO  [cluster-ClusterId{value='5dfcdc5253b02315eb752835', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1714137}
+2019-12-20 06:36:02 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:36:02 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 06:36:02 INFO  [main] com.linux.demo.DemoApplication - Started DemoApplication in 1.38 seconds (JVM running for 1.705)
+2019-12-20 06:36:02 INFO  [main] org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:124}] to 127.0.0.1:27017
+2019-12-20 06:36:02 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-12-20 06:36:02 ERROR [main] o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:787)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:768)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.linux.demo.DemoApplication.main(DemoApplication.java:33)
+Caused by: org.bson.codecs.configuration.CodecConfigurationException: Can't find a codec for class com.linux.demo.beans.Role.
+	at org.bson.codecs.configuration.CodecCache.getOrThrow(CodecCache.java:46)
+	at org.bson.codecs.configuration.ProvidersCodecRegistry.get(ProvidersCodecRegistry.java:63)
+	at org.bson.codecs.configuration.ProvidersCodecRegistry.get(ProvidersCodecRegistry.java:37)
+	at com.mongodb.client.model.BuildersHelper.encodeValue(BuildersHelper.java:37)
+	at com.mongodb.client.model.Updates$SimpleUpdate.toBsonDocument(Updates.java:511)
+	at com.mongodb.client.model.Updates$CompositeUpdate.toBsonDocument(Updates.java:784)
+	at com.mongodb.internal.operation.Operations.toBsonDocument(Operations.java:533)
+	at com.mongodb.internal.operation.Operations.bulkWrite(Operations.java:407)
+	at com.mongodb.internal.operation.Operations.updateOne(Operations.java:346)
+	at com.mongodb.internal.operation.SyncOperations.updateOne(SyncOperations.java:186)
+	at com.mongodb.client.internal.MongoCollectionImpl.executeUpdate(MongoCollectionImpl.java:1033)
+	at com.mongodb.client.internal.MongoCollectionImpl.updateOne(MongoCollectionImpl.java:617)
+	at com.mongodb.client.internal.MongoCollectionImpl.updateOne(MongoCollectionImpl.java:612)
+	at com.linux.demo.mongo.dao.UserDAO.update(UserDAO.java:76)
+	at com.linux.demo.mongo.dao.UserDAO$$FastClassBySpringCGLIB$$5226238d.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:769)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
+	at com.linux.demo.mongo.dao.UserDAO$$EnhancerBySpringCGLIB$$cec0fdd.update(<generated>)
+	at com.linux.demo.DemoApplication.run(DemoApplication.java:59)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:784)
+	... 5 common frames omitted
+2019-12-20 06:36:02 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:36:28 INFO  [main] com.linux.demo.DemoApplication - Starting DemoApplication on ubuntu with PID 5864 (/home/daniel/dev/couponsLinux/target/classes started by daniel in /home/daniel/dev/couponsLinux)
+2019-12-20 06:36:28 INFO  [main] com.linux.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2019-12-20 06:36:29 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2019-12-20 06:36:29 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8ms. Found 0 MongoDB repository interfaces.
+2019-12-20 06:36:29 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-12-20 06:36:29 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-20 06:36:29 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-20 06:36:29 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-20 06:36:29 INFO  [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 660 ms
+2019-12-20 06:36:29 INFO  [main] org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-20 06:36:29 INFO  [cluster-ClusterId{value='5dfcdc6d50a46f3d862b0f7b', description='null'}-127.0.0.1:27017] org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:126}] to 127.0.0.1:27017
+2019-12-20 06:36:29 INFO  [cluster-ClusterId{value='5dfcdc6d50a46f3d862b0f7b', description='null'}-127.0.0.1:27017] org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 2]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1516133}
+2019-12-20 06:36:29 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-20 06:36:29 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-20 06:36:29 INFO  [main] com.linux.demo.DemoApplication - Started DemoApplication in 1.348 seconds (JVM running for 1.674)
+2019-12-20 06:36:29 INFO  [main] org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:127}] to 127.0.0.1:27017
+2019-12-20 06:36:58 INFO  [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
