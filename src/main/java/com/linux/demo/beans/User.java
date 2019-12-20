@@ -11,9 +11,12 @@ public class User {
 
     private ObjectId id;
     // same as @NotBlank just for lombok
-    @NonNull private String username;
-    @NonNull private String password;
-    @NonNull private Role role;
+    @NonNull
+    private String username;
+    @NonNull
+    private String password;
+    @NonNull
+    private Role role;
 
     public User(Document doc) {
         this.id = doc.getObjectId("_id");

@@ -1,7 +1,9 @@
 package com.linux.demo.mongo.dao;
 
 import com.linux.demo.beans.User;
+import com.linux.demo.service.PasswordEncryptor;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Aggregates;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.UpdateResult;
@@ -12,6 +14,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Repository
@@ -21,6 +24,9 @@ public class UserDAO {
     private MongoTemplate mongoTemplate;
     private final String collectionName = "users";
 
+    @Autowired
+    private PasswordEncryptor passwordEncryptor;
+
     public User getOne(ObjectId id) {
         MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
         Document doc = collection.find(
@@ -28,6 +34,16 @@ public class UserDAO {
         ).first();
 
         if(doc == null) throw new RuntimeException("Document is: " + doc);
+        return new User(doc);
+    }
+
+    public User getByCredentials(String username, String password) throws Exception {
+        MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
+        Document doc = collection.aggregate(Arrays.asList(
+                Aggregates.match(Filters.eq("username",username)),
+                Aggregates.match(Filters.eq("password", passwordEncryptor.encrypt(password)))
+        )).first();
+
         return new User(doc);
     }
 
@@ -45,21 +61,22 @@ public class UserDAO {
         ).wasAcknowledged();
     }
 
-    public boolean updateUser(User user, ObjectId id) {
+    public boolean updateUser(User user, ObjectId id) throws Exception {
         MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
         UpdateResult res = collection.updateOne(
                 Filters.eq("_id", id),
                 Updates.combine(
                         Updates.set("username", user.getUsername()),
-                        Updates.set("password", user.getPassword()),
+                        Updates.set("password", passwordEncryptor.encrypt(user.getPassword())),
                         Updates.set("role", user.getRole())
                 )
         );
         return res.wasAcknowledged();
     }
 
-    public void insertUser(User user) {
+    public void insertUser(User user) throws Exception {
         MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
+        user.setPassword(passwordEncryptor.encrypt(user.getPassword()));
         collection.insertOne(user.toDoc());
     }
 
