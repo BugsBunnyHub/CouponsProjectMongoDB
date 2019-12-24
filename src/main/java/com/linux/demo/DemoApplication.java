@@ -73,8 +73,7 @@ public class DemoApplication implements CommandLineRunner {
 //        User updateUser = userDAO.getByCredentials(user2.getUsername(), user2.getPassword());
 //        updateUser.setRole(Role.ADMIN);
 //        System.out.println(userDAO.update(updateUser, updateUser.getId()));
-        System.out.println("WORKS");
-        System.out.println("hellllooo");
+//        System.out.println("WORKS");
 
     }
 }

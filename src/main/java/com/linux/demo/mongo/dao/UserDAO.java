@@ -1,7 +1,6 @@
 package com.linux.demo.mongo.dao;
 
 import com.linux.demo.beans.User;
-import com.linux.demo.service.PasswordEncryptor;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
@@ -22,13 +21,20 @@ public class UserDAO {
     private MongoTemplate mongoTemplate;
     private final String collectionName = "users";
 
-    @Autowired
-    private PasswordEncryptor passwordEncryptor;
-
     public User getOne(ObjectId id) {
         MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
         Document doc = collection.find(
             Filters.eq("_id",id)
+        ).first();
+
+        if(doc == null) throw new RuntimeException("Document is: " + doc);
+        return new User(doc);
+    }
+
+    public User getOne(String username) {
+        MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
+        Document doc = collection.find(
+                Filters.eq("username",username)
         ).first();
 
         if(doc == null) throw new RuntimeException("Document is: " + doc);
@@ -50,7 +56,7 @@ public class UserDAO {
         Document doc = collection.find(
                 Filters.and(
                         Filters.eq("username", username),
-                        Filters.eq("password", passwordEncryptor.encrypt(password))
+                        Filters.eq("password", password)
                 )
         ).first();
 
@@ -59,10 +65,33 @@ public class UserDAO {
         return new User(doc);
     }
 
+    public User getByCredentialsEnabled(String username, String password, boolean enabled) throws Exception {
+        MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
+        Document doc = collection.find(
+                Filters.and(
+                        Filters.eq("username", username),
+                        Filters.eq("password", password),
+                        Filters.eq("enabled", enabled)
+                )
+        ).first();
+
+        //if else operator ternary
+        return doc != null ? new User(doc) : null;
+    }
+
     public List<User> getAll() {
         MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
         List<User> docs = new ArrayList<>();
         collection.find().iterator().forEachRemaining(doc -> docs.add(new User(doc)));
+        return docs;
+    }
+
+    public List<User> getAllEnabled(boolean enabled) {
+        MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
+        List<User> docs = new ArrayList<>();
+        collection.find(
+                Filters.eq("enabled", enabled)
+        ).iterator().forEachRemaining(doc -> docs.add(new User(doc)));
         return docs;
     }
 
@@ -73,14 +102,15 @@ public class UserDAO {
         ).wasAcknowledged();
     }
 
-    public boolean update(User user, ObjectId id) throws Exception {
+    public boolean update(User user) throws Exception {
         MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
         UpdateResult res = collection.updateOne(
-                Filters.eq("_id", id),
+                Filters.eq("_id", user.getId()),
                 Updates.combine(
                         Updates.set("username", user.getUsername()),
-                        Updates.set("password", passwordEncryptor.encrypt(user.getPassword())),
-                        Updates.set("role", user.getRole().name())
+                        Updates.set("password", user.getPassword()),
+                        Updates.set("role", user.getRole().name()),
+                        Updates.set("enabled", user.isEnabled())
                 )
         );
         return res.wasAcknowledged();
@@ -88,7 +118,7 @@ public class UserDAO {
 
     public void insertUser(User user) throws Exception {
         MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
-        user.setPassword(passwordEncryptor.encrypt(user.getPassword()));
+        user.setPassword(user.getPassword());
         collection.insertOne(user.toDoc());
     }
 
