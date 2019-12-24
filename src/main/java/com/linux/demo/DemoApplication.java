@@ -33,6 +33,22 @@ public class DemoApplication implements CommandLineRunner {
         SpringApplication.run(DemoApplication.class, args);
     }
 
+
+    /*
+    git branch - check what branch you are working on (locally)
+
+    git checkout -b branchname - creates new branch
+    git push orgin branch name - to create it
+    git add .
+    git commit -m "comments"
+    git push orgin branch name
+    git branch -D branchname
+    git pull origin master
+
+    use this if you are behind master
+    git merge origin master
+    */
+
     @Override
     public void run(String ...args) throws Exception {
 
@@ -57,7 +73,7 @@ public class DemoApplication implements CommandLineRunner {
 //        User updateUser = userDAO.getByCredentials(user2.getUsername(), user2.getPassword());
 //        updateUser.setRole(Role.ADMIN);
 //        System.out.println(userDAO.update(updateUser, updateUser.getId()));
-        System.out.println("WORKS");
+//        System.out.println("WORKS");
 
     }
 }

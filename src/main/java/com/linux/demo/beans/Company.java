@@ -7,7 +7,9 @@ import lombok.NonNull;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 //@Data generate getters/setter/tostring etc
 @Data
@@ -29,15 +31,19 @@ public class Company {
         this.id = doc.getObjectId("_id");
         this.name = doc.getString("name");
         this.email = doc.getString("email");
-        //TODO ask how to insert a list
-//        this.coupons = doc.getList("coupons", );
+        //from stream of Coupons to stream of ObjId then collect to covert it to List
+        this.coupons = doc.getList("coupons", Coupon.class)
+                .stream()
+                // :: for each obj(Coupon) use method (getId)
+                .map(Coupon::getId)
+                .collect(Collectors.toList());
     }
 
-    //TODO add coupons
     public Document toDoc() {
         Document doc = new Document();
-        doc.put(name, this.name);
-        doc.put(email, this.email);
+        doc.put("name", this.name);
+        doc.put("email", this.email);
+        doc.put("coupons", this.coupons);
         return doc;
     }
 

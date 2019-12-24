@@ -15,3 +15,5 @@ logging:
     max-history: 3
 jwt:
   secret: "daniel"
+server:
+  port: 8080
