@@ -54,6 +54,8 @@ public class UserDAO {
                 )
         ).first();
 
+        if(doc == null) throw new RuntimeException("connection to Mongo might be lost");
+
         return new User(doc);
     }
 
