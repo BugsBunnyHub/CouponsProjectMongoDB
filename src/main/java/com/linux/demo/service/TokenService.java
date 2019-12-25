@@ -20,7 +20,7 @@ public class TokenService {
         return JWT.create()
                 .withIssuer("Just give it a name")
                 // token is valid for 1 hour
-                .withExpiresAt(new Date(new Date().toInstant().plusSeconds(60*60).toEpochMilli()))
+                .withExpiresAt(new Date(new Date().toInstant().plusSeconds(60 * 60).toEpochMilli()))
                 .withClaim("username", user.getUsername())
                 .withClaim("role", user.getRole().name())
                 .sign(algorithm);

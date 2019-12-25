@@ -1,7 +1,5 @@
 package com.linux.demo;
 
-import com.linux.demo.beans.Role;
-import com.linux.demo.beans.User;
 import com.linux.demo.mongo.dao.UserDAO;
 import com.linux.demo.service.PasswordEncryptor;
 import com.linux.demo.service.TokenService;
@@ -11,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.Arrays;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
@@ -50,7 +46,7 @@ public class DemoApplication implements CommandLineRunner {
     */
 
     @Override
-    public void run(String ...args) throws Exception {
+    public void run(String... args) throws Exception {
 
 //        User user1 = new User(null, "daniel", "123456", Role.ADMIN);
 //        User user2 = new User(null, "vlad", "444555", Role.CUSTOMER);

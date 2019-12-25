@@ -30,7 +30,7 @@ public class Coupon {
     @NonNull
     private boolean enabled;
 
-    public Coupon (Document doc) {
+    public Coupon(Document doc) {
         this.id = doc.getObjectId("_id");
         this.title = doc.getString("title");
         this.description = doc.getString("description");
