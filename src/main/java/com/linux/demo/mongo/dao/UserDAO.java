@@ -31,7 +31,7 @@ public class UserDAO {
         return new User(doc);
     }
 
-    public User getOne(String username) {
+    public User getOneByUsername(String username) {
         MongoCollection<Document> collection = mongoTemplate.getCollection(collectionName);
         Document doc = collection.find(
                 Filters.eq("username",username)

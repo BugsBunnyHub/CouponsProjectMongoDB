@@ -46,7 +46,7 @@ public class DemoApplication implements CommandLineRunner {
     */
 
     @Override
-    public void run(String ...args) throws Exception {
+    public void run(String... args) throws Exception {
 
 //        User user1 = new User(null, "daniel", "123456", Role.ADMIN);
 //        User user2 = new User(null, "vlad", "444555", Role.CUSTOMER);
