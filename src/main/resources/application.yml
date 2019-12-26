@@ -15,5 +15,6 @@ logging:
     max-history: 3
 jwt:
   secret: "daniel"
+  issuer: "Just give it a name"
 server:
   port: 8080
