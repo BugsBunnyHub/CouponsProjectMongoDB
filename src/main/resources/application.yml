@@ -10,10 +10,11 @@ logging:
     file: "%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
   file:
     name: couponsProject.log
-    path: /home/daniel
+    path: log/
     max-size: 10MB
     max-history: 3
 jwt:
   secret: "daniel"
+  issuer: "Just give it a name"
 server:
   port: 8080

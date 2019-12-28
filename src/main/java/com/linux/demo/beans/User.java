@@ -1,6 +1,9 @@
 package com.linux.demo.beans;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 

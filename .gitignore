@@ -4,6 +4,9 @@ target/
 !**/src/main/**
 !**/src/test/**
 
+couponsProject.log
+log
+
 ### STS ###
 .apt_generated
 .classpath
